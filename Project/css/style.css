@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Tahoma', 'Cairo', system-ui, sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #1e2b3c 0%, #0f212f 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+/* بطاقة المحول الرئيسية */
+.exchange-card {
+    max-width: 620px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(2px);
+    border-radius: 2.5rem;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.exchange-card:hover {
+    transform: scale(1.01);
+}
+
+/* رأس الصفحة */
+.card-header {
+    background: #f7b32b;
+    background: linear-gradient(135deg, #f9a826, #f7c35c);
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    color: #1f2f3a;
+}
+
+.card-header h1 {
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.card-header h1:before {
+    content: "💱";
+    font-size: 2rem;
+}
+
+.card-header p {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    opacity: 0.85;
+    font-size: 0.95rem;
+}
+
+/* منطقة الحقول */
+.input-section {
+    padding: 2rem 1.8rem 1.5rem;
+    background: #ffffff;
+}
+
+.field-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: flex-end;
+}
+
+.amount-field {
+    flex: 2;
+    min-width: 160px;
+}
+
+.currency-field {
+    flex: 1.2;
+    min-width: 140px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #1e4663;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1.1rem;
+    border: 2px solid #e2edf2;
+    border-radius: 1.5rem;
+    background-color: #fff;
+    transition: all 0.2s;
+    outline: none;
+    font-weight: 500;
+    color: #0a2a3b;
+}
+
+input:focus, select:focus {
+    border-color: #f7b32b;
+    box-shadow: 0 0 0 3px rgba(247, 179, 43, 0.2);
+}
+
+input {
+    direction: ltr;
+    text-align: right;
+}
+
+/* تلميحات ورسوم مساعدة */
+.hint {
+    font-size: 0.7rem;
+    color: #6c8b9e;
+    margin-top: 6px;
+    margin-right: 8px;
+}
+
+/* زر المصارفة */
+.exchange-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 1.5rem 0;
+}
+
+.exchange-btn {
+    background: #1f5e3a;
+    background: linear-gradient(95deg, #1f6e43, #166534);
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 0.9rem 2.5rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    transition: 0.2s;
+    width: auto;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.exchange-btn:hover {
+    background: #0f4d2f;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.2);
+}
+
+.exchange-btn:active {
+    transform: translateY(1px);
+}
+
+/* لوحة النتائج */
+.result-panel {
+    background: #f8fafd;
+    margin: 0 1.5rem 1.8rem 1.5rem;
+    border-radius: 1.8rem;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid #e9f0f5;
+    box-shadow: inset 0 1px 2px #0001, 0 6px 12px -6px rgba(0,0,0,0.1);
+}
+
+.result-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2b4e6e;
+    border-right: 5px solid #f7b32b;
+    padding-right: 12px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.currency-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed #cbdbe2;
+}
+
+.currency-result:last-child {
+    border-bottom: none;
+}
+
+.currency-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1f4e6e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.currency-amount {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1f2f3c;
+    direction: ltr;
+    background: #ffffffcc;
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.small-note {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: #6e8aa3;
+}
+
+/* حالة الخطأ */
+.error-message {
+    background: #ffe8e6;
+    color: #c23d2e;
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    margin: 0 1.5rem 1rem 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* responsive */
+@media (max-width: 480px) {
+    .exchange-card {
+        border-radius: 1.8rem;
+    }
+    .currency-amount {
+        font-size: 1.2rem;
+    }
+    .exchange-btn {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.8rem;
+    }
+    .field-group {
+        gap: 0.8rem;
+    }
+}
